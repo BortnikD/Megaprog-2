@@ -1,3 +1,3 @@
 ﻿  Megaprog 2.cpp
-C:\Cods\Megaprog 2\Megaprog 2\Megaprog 2.cpp(138,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Cods\Megaprog 2\Megaprog 2\Megaprog 2.cpp(159,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   Megaprog 2.vcxproj -> C:\Cods\Megaprog 2\x64\Debug\Megaprog 2.exe

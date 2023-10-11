@@ -1,15 +1,15 @@
 ﻿#include <iostream>
-#include <cmath>
-#include <ctime>
+#include <cmath> //для работы с тригонометрией и корнями
+#include <ctime> //для генерации пароля
 using namespace std;
 
 
-class Numbers
+class Numbers //класс для работы с числами
 {
 public:
 
 
-    void massMMM()
+    void massMMM() //функция для работы с массивами
     {
         int size; cout << "Введите размер массива: "; cin >> size;
         auto *mass = new double[size];
@@ -75,16 +75,17 @@ public:
     }
 
 
-    void calc()
+    void calc() //Функция для калькулятора
     {
         int prog_calc;
     	cout << "Введите номер задачи которую хотите выполнить, список задач:"<<endl<<
             "1) Операции между двумя числами"<<endl<<
             "2) Извлечение корней"<<endl<<
-            "3) Возведение числа в степень"<<endl << 
+            "3) Возведение числа в степень"<<endl <<
+            "4) Тригонометрия "<<endl<<
             "Ваш выбор: ";
     	cin >> prog_calc;
-        double numb_1, numb_2, res_1, numb_3, res_2, base, power, root, res_3 = 1;
+        double numb_1, numb_2, res_1, numb_3, res_2, base, power, root, res_3 = 1, res_4, numb_4;
         switch (prog_calc) {
         case 1:
             char operation;
@@ -127,15 +128,35 @@ public:
             else 
             { cout << "Ошибка - данный код не умеет считать отрицательную степень, ждите обновлений!"; }
         	break;
-            
+
+        case 4:
+            cout << "Выберите действие которое хотите совершить, спискок действий: "<<endl<<
+                "1) Посчитать синус"<<endl<<
+                "2) Косинус"<<endl<<
+                "3) Тангенс"<<endl<<
+                "4) Котангенс"<<endl<<
+                "Ваш выбор: ";
+            int trip_prog;
+            cin >> trip_prog;
+            cout << "Введите значение выбранного действия в градусах: "; cin >> numb_4;
+           switch (trip_prog) {
+           case 1: res_4 = sin(numb_4/57.2957795131); break; // Для перевода градусов в радианы, нужно разделить переменную на 57...
+           case 2: res_4 = cos(numb_4 / 57.2957795131); break;
+           case 3: res_4 = tan(numb_4 / 57.2957795131); break;
+           case 4: res_4 = 1 / tan(numb_4 / 57.2957795131); break;
+           default: cout << "Данного действия не существует, убедитесь в правильности написания";
+           } 
+           cout <<"Ответ - " <<res_4<<endl; break;
+
+
         default: 
             cout << "Неизвестная ошибка";
         }
     }
 
-    void passOp()
+    void passOp() //функция для генератора паролей
     {
-        srand(time(NULL));
+        srand(time(NULL)); //ранду присваевается значение сранда, который в свою очередь генирирует цифры в зависимости от времени
         cout << "Введите номер действия которое хотите совершить:" << endl <<
             "1) Генератор пинконда или пароля определенной длины только из цифр" << endl <<
             "Ваш выбор: ";
@@ -146,7 +167,7 @@ public:
         cout << "Ваш пароль: ";
         for(int i=0; i<length_1; i++)
         {
-            password_1 = rand() % 10;
+            password_1 = rand() % 10; //функция генерирует не только маленькие числа, поэтому ищем остаток от деления на 10 и получаем все цифры от 0 до 9
             cout << password_1;
         }
         cout << endl;
@@ -156,22 +177,21 @@ public:
 
 int main()
 {
-    setlocale(LC_ALL, "ru");
+    setlocale(LC_ALL, "ru"); //Поддержка русского языка
 
-    while (true) {
+    while (true) //цикл для того чтобы программа не вылетала после каждой задачи выполненной до конца
+    { 
         int prog_main;
     	cout << "Здравствуйте! Выберите номер программы которую хотите использовать, список программ: " << endl <<
-            "0) Выход"<<endl<<
             "1) Операции с массивами" << endl <<
             "2) Калькулятор" << endl<<
             "3) Генератор паролей"<<endl<<
+            "0) Выход"<<endl<<
             "Ваш выбор: ";
         cin >> prog_main;
         switch (prog_main)
         {
-        case 0:  cout << "До свидания!" << endl;
-        	return 0;
-
+        case 0: cout << "До свидания!"; return 0;
         case 1: Numbers prog_1;
         	prog_1.massMMM();
         	break;
