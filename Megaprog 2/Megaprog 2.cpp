@@ -118,15 +118,8 @@ public:
         	cin >> base;
             cout << "Введите степень: ";
         	cin >> power;
-            if (power > 0) {
-                for (int i = 0; i < power; i++)
-                {
-                    res_3 *= base;
-                }
-                cout << "Ответ = " << res_3 << endl<<endl;
-            }
-            else 
-            { cout << "Ошибка - данный код не умеет считать отрицательную степень, ждите обновлений!"; }
+            res_3 = pow(base, power);
+            cout << "Ответ = " << res_3 << endl << endl;
         	break;
 
         case 4:
