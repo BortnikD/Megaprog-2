@@ -17,19 +17,20 @@ public:
         {
             cout << "Введите значение элемента массива №" << i + 1 << ": " ; cin >> mass[i];
         }
-        int N; cout << "Введите действие которое хотите совершить с массивом, список действий, которые можно совершить:" << endl <<
+        int prog_mass; cout << "Введите действие которое хотите совершить с массивом, список действий, которые можно совершить:" << endl <<
             "1) Найти максимальное значение" << endl <<
             "2) Найти минимальное значение" << endl <<
             "3) Найти среднее значение" << endl <<
             "4) Найти сумму элементов массива" << endl <<
             "5) Найти произведение элементов массива" << endl <<
             "Ваш выбор: ";
-    	cin >> N;
+    	cin >> prog_mass;
         double max = 0, min = 0, mid = 0, sum = 0, mul = 1;
-        switch(N)
+        switch(prog_mass)
         {
         case 1: 
-            max = mass[0];  for (int i = 0; i < size; i++)
+            max = mass[0];
+        	for (int i = 0; i < size; i++)
         {
 	        if (max < mass[i]) { max = mass[i]; }
         }
@@ -37,7 +38,8 @@ public:
         	break;
 
         case 2:
-            min = mass[0];  for (int i = 0; i < size; i++)
+            min = mass[0];
+        	for (int i = 0; i < size; i++)
         {
 	        if (min > mass[i]) { min = mass[i]; }
         }
@@ -83,6 +85,7 @@ public:
             "2) Извлечение корней"<<endl<<
             "3) Возведение числа в степень"<<endl <<
             "4) Тригонометрия "<<endl<<
+            "5) Логорифмы"<<endl<<
             "Ваш выбор: ";
     	cin >> prog_calc;
         double numb_1, numb_2, res_1, numb_3, res_2, base, power, root, res_3 = 1, res_4, numb_4;
@@ -141,6 +144,13 @@ public:
            } 
            cout <<"Ответ - " <<res_4<<endl; break;
 
+        case 5:
+           double base_5, numb_5, res_5;
+           cout << "Введите логорифм который хотите посчитать: log";
+           cin >> base_5 >> numb_5;
+           res_5 = log(numb_5) / log(base_5);
+           cout << "Ваш результат = " << res_5<<endl<<endl;
+           break;
 
         default: 
             cout << "Неизвестная ошибка";
