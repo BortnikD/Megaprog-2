@@ -11,7 +11,8 @@ public:
 
     void massMMM() //функция для работы с массивами
     {
-        int size; cout << "Введите размер массива: "; cin >> size;
+        int size; cout << "Введите размер массива: ";
+    	cin >> size;
         auto *mass = new double[size];
         for(int i=0; i < size; i++)
         {
@@ -23,6 +24,7 @@ public:
             "3) Найти среднее значение" << endl <<
             "4) Найти сумму элементов массива" << endl <<
             "5) Найти произведение элементов массива" << endl <<
+            "6) Сортировка массива" << endl<<
             "Ваш выбор: ";
     	cin >> prog_mass;
         double max = 0, min = 0, mid = 0, sum = 0, mul = 1;
@@ -70,7 +72,30 @@ public:
             }
         	cout << "Ваш результат = " << mul << endl << endl;
         	break;
+        case 6:
+            for (int i = 0; i < size - 1; i++)
+            {
+                for (int j = 0; j < size - i - 1; j++)
+                {
+                    if (mass[j] > mass[j + 1])
+                    {
+                        int temp = mass[j];
+                        mass[j] = mass[j + 1];
+                        mass[j + 1] = temp;
+                    }
+                }
+            }
 
+            cout << "Отсортированный массив: \n";
+            for (int i = 0; i < size; i++)
+            {
+                cout << mass[i];
+                if (i < size - 1)
+                {
+                    cout << ", ";
+                }
+            }
+            cout << endl << endl;
         default: cout << "Ошибка - выбранного действия не существует, убедитесь что вы правильно ввели номер (нужно указать только цифру действия) и попробуйте ещё раз ";
             delete[]mass;
         }
@@ -142,7 +167,7 @@ public:
            case 4: res_4 = 1 / tan(numb_4 / 57.2957795131); break;
            default: cout << "Данного действия не существует, убедитесь в правильности написания";
            } 
-           cout <<"Ответ - " <<res_4<<endl; break;
+           cout <<"Ответ - " <<res_4<<endl<<endl; break;
 
         case 5:
            double base_5, numb_5, res_5;
@@ -175,6 +200,7 @@ public:
         }
         cout << endl;
     }
+
 };
 
 
